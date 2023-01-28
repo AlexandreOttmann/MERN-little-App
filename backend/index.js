@@ -1,5 +1,10 @@
 import express from 'express'
-const port = 3000
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const port = process.env.PORT || 3000
 
 const app = express()
 app.use(express.json())
@@ -10,7 +15,7 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
 	const data = req.body
-	console.log(data)
+	
 	res.status(201).send(req.body)
 })
 
