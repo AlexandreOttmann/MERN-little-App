@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 function SingleArticle() {
-  let { id } = useParams();
+	const [post, setPost] = useState([]);
+	const { id } = useParams();
 
-  console.log(id);
+	useEffect(() => {
+    getSinglePost(id);
+  }, []);
+	
+	async function getSinglePost(id) {
+		console.log(id)
+    try {
+      const response = await axios.get(`http://localhost:8080/v2/post/${id}`);
+      setPost(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-  return <div>SingleArticle</div>;
+  console.log(post);
+
+	return (
+		<div>SingleArticle</div>
+		)
 }
 
 export default SingleArticle;

@@ -11,8 +11,8 @@ function AllArticles() {
 
   async function getAllPost() {
     try {
-      const data = await axios.get('http://localhost:8080/v2/allposts');
-      setPosts(data.data);
+      const reponse = await axios.get('http://localhost:8080/v2/allposts');
+      setPosts(reponse.data);
     } catch (error) {
       console.log(error);
     }
