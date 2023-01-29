@@ -1,11 +1,11 @@
 import React from 'react';
-import AllArticles from '../components/Posts/AllArticles';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
     <>
       <div>Home</div>
-      <AllArticles />
+      <Link to='/articles'> listes des articles</Link>
     </>
   );
 }
