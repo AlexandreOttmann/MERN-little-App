@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function SingleArticle() {
@@ -20,9 +20,14 @@ function SingleArticle() {
     }
   }
 
-  console.log(post);
-
-  return <div>SingleArticle</div>;
+  return (
+    <>
+      <Link to='/articles'>Retour à tous les articles</Link>
+      <h1>{post.title}</h1>
+      <p>{post.author}</p>
+      <p>{post.body}</p>
+    </>
+  );
 }
 
 export default SingleArticle;
