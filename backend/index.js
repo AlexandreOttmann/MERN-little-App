@@ -26,18 +26,18 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.post('/v2/post', async (req, res) => {
-  const dbPosts = req.body;
-  try {
-    const post = await Post.create(dbPosts);
-    if (!post) {
-      return res.status(404).json('Post not dound');
-    }
-    return res.status(201).json(post);
-  } catch (err) {
-    return res.status(500).send('Server error', err);
-  }
-});
+// app.post('/v2/post', async (req, res) => {
+//   const dbPosts = req.body;
+//   try {
+//     const post = await Post.create(dbPosts);
+//     if (!post) {
+//       return res.status(404).json('Post not dound');
+//     }
+//     return res.status(201).json(post);
+//   } catch (err) {
+//     return res.status(500).send('Server error', err);
+//   }
+// });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

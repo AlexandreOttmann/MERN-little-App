@@ -12,6 +12,18 @@ const postController = {
       return res.status(500).json('Server error');
     }
 	},
+	addPost: async (req, res) => {
+		const dbPosts = req.body;
+		try {
+			const post = await Post.create(dbPosts);
+			if (!post) {
+				return res.status(404).json('Post not dound');
+			}
+			return res.status(201).json(post);
+		} catch (err) {
+			return res.status(500).send('Server error', err);
+		}
+	},
 	getPostById: async (req, res) => {
 		const params = req.params.id;
 		try {
