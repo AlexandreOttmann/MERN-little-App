@@ -4,13 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import './styles.css'
 
 function SinglePost({ id }) {
-  const [post, setPost] = useState({});
+	const [post, setPost] = useState({});
+	// useNavigate from react router to redirect after action
 	const navigate = useNavigate();
 	
+	  // When component is mounted we execute this function
   useEffect(() => {
     getSinglePost(id);
   }, []);
 
+	// id params form /pages/SingleArticle.jsx
   async function getSinglePost(id) {
     try {
       const response = await axios.get(`http://localhost:8080/v2/post/${id}`);
@@ -20,6 +23,7 @@ function SinglePost({ id }) {
     }
 	}
 	
+	// function to delete current post
 	function handleDelete(e) {
 		e.preventDefault()
 		const deletePost = () => {

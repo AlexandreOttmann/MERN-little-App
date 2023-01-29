@@ -4,11 +4,14 @@ import Articles from './pages/Articles';
 import SingleArticle from './pages/SingleArticle';
 
 function App() {
-  return (
+	return (
+		// router init here + routes
     <Router>
-      <Routes>
+			<Routes>
+				{/* All routes are here */}
         <Route path='/' element={<Home />} />
 				<Route path='/articles' element={<Articles />} />
+				{/* Route with params */}
 				<Route path='/articles/:id' element={<SingleArticle />} />
       </Routes>
     </Router>
