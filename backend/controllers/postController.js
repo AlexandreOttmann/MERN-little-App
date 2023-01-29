@@ -7,7 +7,7 @@ const postController = {
       if (!post) {
         return res.status(404).json('Post not found');
       }
-      return res.status(201).json(post);
+      return res.status(200).json(post);
     } catch (err) {
       return res.status(500).json('Server error');
     }
