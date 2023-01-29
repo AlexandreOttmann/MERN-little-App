@@ -1,7 +1,7 @@
 import Post from '../models/postModel.js';
 
 const postController = {
-  getAllPosts: async (req, res) => {
+  getAllPosts: async (_req, res) => {
     try {
       const post = await Post.find({});
       if (!post) {
