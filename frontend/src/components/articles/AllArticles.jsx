@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function AllArticles() {
   const [posts, setPosts] = useState([]);
@@ -23,9 +23,11 @@ function AllArticles() {
       <div>AllArticles</div>
       {posts.map((post) => (
         <div key={post._id}>
-					<h2><Link to={post._id}>{post.title}</Link></h2>
-					<p>{post.author}</p>
-					<p>{post.body}</p>
+          <h2>
+            <Link to={post._id}>{post.title}</Link>
+          </h2>
+          <p>{post.author}</p>
+          <p>{post.body}</p>
         </div>
       ))}
     </>

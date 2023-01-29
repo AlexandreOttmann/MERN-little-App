@@ -3,15 +3,15 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function SingleArticle() {
-	const [post, setPost] = useState([]);
-	const { id } = useParams();
+  const [post, setPost] = useState([]);
+  const { id } = useParams();
 
-	useEffect(() => {
+  useEffect(() => {
     getSinglePost(id);
   }, []);
-	
-	async function getSinglePost(id) {
-		console.log(id)
+
+  async function getSinglePost(id) {
+    console.log(id);
     try {
       const response = await axios.get(`http://localhost:8080/v2/post/${id}`);
       setPost(response.data);
@@ -22,9 +22,7 @@ function SingleArticle() {
 
   console.log(post);
 
-	return (
-		<div>SingleArticle</div>
-		)
+  return <div>SingleArticle</div>;
 }
 
 export default SingleArticle;
