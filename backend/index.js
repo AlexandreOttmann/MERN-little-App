@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import Post from './models/postModel.js';
+import {router} from './router/posts/router.js'
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use(router)
 
 mongoose.set('strictQuery', false);
 
