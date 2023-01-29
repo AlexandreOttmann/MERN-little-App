@@ -26,17 +26,17 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.delete('/v2/post/:id', async (req, res) => {
-  try {
-    const post = await Post.findByIdAndRemove(req.params.id);
-    if (!post) {
-      return res.status(404).json('Not found');
-    }
-    return res.status(201).json('Post deleted');
-  } catch (err) {
-    return res.status(500).json('Server error');
-  }
-});
+// app.delete('/v2/post/:id', async (req, res) => {
+//   try {
+//     const post = await Post.findByIdAndRemove(req.params.id);
+//     if (!post) {
+//       return res.status(404).json('Not found');
+//     }
+//     return res.status(201).json('Post deleted');
+//   } catch (err) {
+//     return res.status(500).json('Server error');
+//   }
+// });
 
 app.put('/v2/post/:id', async (req, res) => {
   try {
