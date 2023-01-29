@@ -1,13 +1,13 @@
-import React from 'react'
-import AllArticles from '../components/articles/AllArticles'
+import React from 'react';
+import AllArticles from '../components/Posts/AllArticles';
 
 function Articles() {
-	return (
-		<>
-			<h1>Tous les articles</h1>
-			<AllArticles />
-		</>
-	)
+  return (
+    <>
+      <h1>Tous les articles</h1>
+      <AllArticles />
+    </>
+  );
 }
 
-export default Articles
+export default Articles;

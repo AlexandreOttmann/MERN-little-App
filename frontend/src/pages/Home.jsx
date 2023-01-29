@@ -1,5 +1,5 @@
 import React from 'react';
-import AllArticles from '../components/articles/AllArticles';
+import AllArticles from '../components/Posts/AllArticles';
 
 function Home() {
   return (
