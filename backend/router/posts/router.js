@@ -1,9 +1,10 @@
 import express from 'express';
+
+import postController from '../../controllers/postController.js';
+
 export const router = express.Router();
 
-router.get('/coucou', (req, res) => { res.send('coucou') })
-
-router.get('/v2/allposts')
+router.get('/v2/allposts', postController.getAllPosts )
 router.post('v2/post')
 router.get('/v2/post/:id')
 router.put('/v2/post/:id')
