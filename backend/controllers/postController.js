@@ -24,6 +24,17 @@ const postController = {
 			return res.status(500).json('Server error');
 		}
 	},
+	updatePostById: async (req, res) => {
+		try {
+			const post = await Post.findByIdAndUpdate(req.params.id, req.body);
+			if (!post) {
+				return res.status(404).json('Not found');
+			}
+			return res.status(201).json('Post updated');
+		} catch (err) {
+			return res.status(500).json('Server error');
+		}
+	},
 	deletePostById: async (req, res) => {
 		try {
 			const post = await Post.findByIdAndRemove(req.params.id);

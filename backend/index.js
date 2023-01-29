@@ -26,17 +26,17 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.put('/v2/post/:id', async (req, res) => {
-  try {
-    const post = await Post.findByIdAndUpdate(req.params.id, req.body);
-    if (!post) {
-      return res.status(404).json('Not found');
-    }
-    return res.status(201).json('Post updated');
-  } catch (err) {
-    return res.status(500).json('Server error');
-  }
-});
+// app.put('/v2/post/:id', async (req, res) => {
+//   try {
+//     const post = await Post.findByIdAndUpdate(req.params.id, req.body);
+//     if (!post) {
+//       return res.status(404).json('Not found');
+//     }
+//     return res.status(201).json('Post updated');
+//   } catch (err) {
+//     return res.status(500).json('Server error');
+//   }
+// });
 
 app.post('/v2/post', async (req, res) => {
   const dbPosts = req.body;
