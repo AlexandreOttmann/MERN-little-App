@@ -36,9 +36,9 @@ app.get('/v2/postlist', async (req, res) => {
 });
 
 app.get('/v2/post/:id', async (req, res) => {
-	const params = req.params.id
+  const params = req.params.id;
   try {
-    const post = await Post.findOne({_id: params});
+    const post = await Post.findOne({ _id: params });
     if (!post) {
       return res.status(404).json('Post not found');
     }
@@ -49,18 +49,16 @@ app.get('/v2/post/:id', async (req, res) => {
 });
 
 app.delete('/v2/post/:id', async (req, res) => {
-	
-	try {
-		const post = await Post.findByIdAndRemove(req.params.id);
-		if (!post) {
+  try {
+    const post = await Post.findByIdAndRemove(req.params.id);
+    if (!post) {
       return res.status(404).json('Not found');
     }
     return res.status(201).json('Post deleted');
-	}
-	catch (err) {
+  } catch (err) {
     return res.status(500).json('Server error');
   }
-})
+});
 
 app.post('/v2/post', async (req, res) => {
   const dbPosts = req.body;
