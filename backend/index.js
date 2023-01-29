@@ -26,19 +26,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// app.get('/v2/post/:id', async (req, res) => {
-//   const params = req.params.id;
-//   try {
-//     const post = await Post.findOne({ _id: params });
-//     if (!post) {
-//       return res.status(404).json('Post not found');
-//     }
-//     return res.status(201).json(post);
-//   } catch (err) {
-//     return res.status(500).json('Server error');
-//   }
-// });
-
 app.delete('/v2/post/:id', async (req, res) => {
   try {
     const post = await Post.findByIdAndRemove(req.params.id);
