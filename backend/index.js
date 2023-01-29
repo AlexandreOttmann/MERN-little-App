@@ -22,10 +22,6 @@ mongoose.connect(process.env.MONGO_DB, () => {
   console.log('Connected to MongoDB');
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
