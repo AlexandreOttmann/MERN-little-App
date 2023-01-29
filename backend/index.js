@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-import {router} from './router/posts/router.js'
+import { router } from './router/posts/router.js';
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(router)
+app.use(router);
 
 mongoose.set('strictQuery', false);
 
