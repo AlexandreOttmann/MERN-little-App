@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MERN-little-App
 A challenge from the Wild Code School
 
@@ -34,3 +35,15 @@ Pour résumer, il s'agit d'implémenter les fonctionnalités "Create" et "Read" 
 2. Stocker les données de cette application dans une base de données.
 
 L'application ne comportera qu'une seule page.
+=======
+# THIS IS ONLY A TEST
+
+## BACKEND
+- Express
+- MongoDB
+
+## FRONTEND
+- Vite React
+- React router
+- Axios
+>>>>>>> bd9bba57577f1b0859427a999bdcfa688d150973
