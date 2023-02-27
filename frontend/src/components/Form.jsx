@@ -1,11 +1,14 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import axios from "axios";
 
-export default function Form() {
+
+
+export default function Form({state, updateState}) {
   const[member, setMember] = useState({
     name: "",
     role: "Matelot",
   });
+
 // Check the input
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -17,18 +20,19 @@ export default function Form() {
     })
   }
 
-  useEffect(() => {
-    console.log(member);
-  }, [member])
+
   
 // Send data to back
   const handleClick = (event) => {
     event.preventDefault();
-     window.location.reload()
+  
     axios
-    .post("http://localhost:3000/create", member)
+    .post(`${import.meta.env.VITE_URL_TOCHANGE}/create`, member)
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
+    updateState(!state)
+   
+   
   };
 
   return ( 

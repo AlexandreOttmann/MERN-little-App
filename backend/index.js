@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser'
+import { router } from './router/posts/router.js';
 const app = express();
 const port = process.env.PORT || 3000;
 dotenv.config();
@@ -23,37 +24,16 @@ async function connect() {
 }
 connect();
 
+app.use(router)
 
-const MemberSchema = new mongoose.Schema({
-  name: String,
-  role: String
-});
 
-const Member = mongoose.model("Member", MemberSchema)
+app.use(express.static("../frontend/dist"))
 
-// Get the data from /create route and send it to database with create
-app.post("/create", (req, res) => {
-  const newMember = new Member({
-    name: req.body.name,
-    role: req.body.role
-  });
-  newMember
-    .save()
-    .then(doc => console.log('doc', doc))
-    .catch(err => console.log(err));
-});
-
-// Path to render the Members list
-app.get("/", (req, res) => {
-  Member.find()
-    .then(items => res.json(items))
-    .catch(err => console.log(err))
+app.get("*", (_, res) => {
+  res.sendFile(path.join(__dirname, './frontend/dist/index.html'),
+    (err) => { if (err) { res.status(500).send(err) } })
 })
-// Path to delete
-app.delete("/delete/:id", (req, res) => {
-  Member.findByIdAndDelete({ _id: req.params.id })
-    .then(doc => console.log(doc)).catch((err) => console.log(err));
-})
+
 
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
