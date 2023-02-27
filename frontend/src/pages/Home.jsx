@@ -1,11 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Form from '../components/Form'
+import MemberList from '../components/MemberList';
+import '../index.css';
+
+
 
 function Home() {
   return (
     <>
-      <div>Home</div>
-      <Link to='/articles'> listes des articles</Link>
+    <Header/>
+    <main  className=''>
+      
+      <Form/>
+      <MemberList/>
+    </main>
+    <Footer/>
     </>
   );
 }
